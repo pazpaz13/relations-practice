@@ -22,7 +22,7 @@ export class UserController {
                this.userService.createUser(name);
      }
 
-     @Put('/addFavAnimal')
+     @Post('/addFavAnimal')
      async addFavoriteAnimal(@Query('animalName') animalName: string, @Query('userId') uid: number) {
           const user = await this.userService.findById(uid);
           const animal = await this.animalService.findFavoriteAnimal(animalName);
@@ -34,6 +34,7 @@ export class UserController {
                     user.animals = [animal];
                }
           }
+          console.log("userrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr ", user, uid)
           await this.userService.update(user);
      }
 

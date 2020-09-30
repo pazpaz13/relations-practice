@@ -20,7 +20,7 @@ export class UserService {
     }
 
     async update(user: User){
-        console.log(user)
-        await this.UserRepository.update(user.id, {animals: user.animals});
+        await this.UserRepository.save(user);
     }
+
 }
